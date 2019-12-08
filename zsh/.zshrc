@@ -54,7 +54,7 @@ source ~/google-cloud-sdk/completion.zsh.inc
 setopt auto_cd
 cdpath=(~/Dropbox/projects/deepencity/product/backend ~/Dropbox/projects ~/Dropbox/projects/deepencity ~/Dropbox/projects/zenmodeler ~/Google\ Drive/ ~/Dropbox/projects/zm-websites/ ~/Dropbox/projects/deepencity/product  ~/Dropbox/projects/prez ~/Dropbox/projects/electre/refonte)
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=$PATH:~/Dropbox/projects/deepencity/product/backend/javaByteCodeAnalyzer
 export PATH=$PATH:~/Dropbox/projects/deepencity/product/core/city
 export JAVA_HOME="$(/usr/libexec/java_home -v 9)"
