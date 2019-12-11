@@ -59,12 +59,12 @@ set synmaxcol=200
 
 " Aesthetics
 
-colorscheme badwolf 
+" colorscheme badwolf 
 set background=dark
 " solarized options 
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
-colorscheme solarized8_dark_high 
+colorscheme solarized8
 hi Comment cterm=italic
  
 

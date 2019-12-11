@@ -44,11 +44,11 @@ ZSH_THEME="jgrodziski"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`
 
-plugins=(git docker osx sublime mvn ssh-agent lein brew dircycle history jump z autojump zsh-syntax-highlighting kubectl)
+plugins=(git docker osx sublime mvn ssh-agent lein brew dircycle history jump z zsh-syntax-highlighting kubectl zsh-completions zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # gcloud
-source ~/google-cloud-sdk/completion.zsh.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 
 # Customize to your needs...
 setopt auto_cd
