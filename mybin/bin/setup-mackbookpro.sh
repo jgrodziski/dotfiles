@@ -122,6 +122,9 @@ apps=(firefox
 brew cask install --appdir="/Applications" ${apps[@]}
 brew cleanup
 
+echo "Setup kubectl with google-cloud-sdk"
+sudo ln /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/kubectl /usr/local/bin/kubectl
+
 echo "Setup MAC OS X defaults"
 
 # Always show scrollbars
