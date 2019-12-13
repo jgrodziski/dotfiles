@@ -28,7 +28,7 @@ brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 brew cask install adoptopenjdk9
 brew cask install adoptopenjdk13
-brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh 
+brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh kubectx
 
 echo "Install App Store applications"
 #run `mas list` on a mac where the MacAppstore are installed to get the identifiers below
