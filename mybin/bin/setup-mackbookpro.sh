@@ -28,7 +28,7 @@ brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 brew cask install adoptopenjdk9
 brew cask install adoptopenjdk13
-brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh kubectx
+brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh kubectx telnet minica maven jq yarn fzf
 
 echo "Install App Store applications"
 #run `mas list` on a mac where the MacAppstore are installed to get the identifiers below
@@ -38,6 +38,7 @@ mas install 736189492 # Notability
 mas install 507308266 # InSSIDer
 mas install 904280696 # Things
 mas install 405399194 # Kindle
+mas install 497799835 # Xcode
 
 echo "Install Emacs"
 brew tap d12frosted/emacs-plus
@@ -96,6 +97,7 @@ apps=(firefox
       dashlane
       iterm2
       sublime-text
+      datagrip
       vlc
       qlmarkdown
       qlstephen
@@ -124,6 +126,7 @@ brew cleanup
 
 echo "Setup kubectl with google-cloud-sdk"
 sudo ln /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/kubectl /usr/local/bin/kubectl
+gcloud auth configure-docker
 
 echo "Setup MAC OS X defaults"
 
