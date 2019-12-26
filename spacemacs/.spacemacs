@@ -55,6 +55,7 @@ This function should only modify configuration layer settings."
      ;; better-defaults
      emacs-lisp
      git
+     multiple-cursors
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
