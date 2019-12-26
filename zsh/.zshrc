@@ -1,7 +1,13 @@
 export LANG="en_US.UTF-8"
 
 # Path to your oh-my-zsh configuration.
+#
 ZSH=$HOME/.oh-my-zsh
+export FZF_BASE=/usr/local/Cellar/fzf/0.20.0
+
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -44,7 +50,7 @@ ZSH_THEME="jgrodziski"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`
 
-plugins=(git docker osx sublime mvn ssh-agent lein brew dircycle history jump z zsh-syntax-highlighting kubectl zsh-completions zsh-autosuggestions)
+plugins=(git docker osx sublime mvn ssh-agent lein brew dircycle history jump z zsh-syntax-highlighting kubectl zsh-completions zsh-autosuggestions fzf)
 source $ZSH/oh-my-zsh.sh
 
 # gcloud
@@ -57,25 +63,13 @@ cdpath=(~/Dropbox/projects/deepencity/product/backend ~/Dropbox/projects ~/Dropb
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=$PATH:~/Dropbox/projects/deepencity/product/backend/javaByteCodeAnalyzer
 export PATH=$PATH:~/Dropbox/projects/deepencity/product/core/city
-export JAVA_HOME="$(/usr/libexec/java_home -v 9)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 13)"
 export PATH=$PATH:$JAVA_HOME/bin
 #export JAVA_TOOL_OPTIONS="--add-modules=java.xml.bind"
-export MONGO_HOME=/usr/local/Cellar/mongodb/3.0.7
-export NEO4J_HOME=/usr/local/cellar/neo4j/2.3.1
-export RABBITMQ_HOME=/usr/local/cellar/rabbitmq/3.4.2
-export M2_HOME=/usr/local/Cellar/maven/3.3.9/libexec/
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
-export DATOMIC_HOME=/Users/jeremiegrodziski/datomic-pro-0.9.5067/
-export DATOMIC_CONSOLE_HOME=/Users/jeremiegrodziski/datomic-console-0.1.199/
-export SONAR_RUNNER_HOME=/usr/local/Cellar/sonar-runner/2.4/libexec
 export LEIN_JAVA_CMD=$JAVA_HOME/bin/java
 export LEIN_FAST_TRAMPOLINE=y
 export LEIN_SNAPSHOTS_IN_RELEASE=true
 export PATH="$HOME/.node/bin:$PATH"
-export PATH=$PATH:$HOME/google-cloud-sdk/bin
-export GRAALVM_HOME=/Applications/graalvm-ce-1.0.0-rc13/Contents/Home
-export PATH=$PATH:$GRAALVM_HOME/bin
-export ELECTRE_PROFILE=local
 
 alias vi=vim
 alias t=todo.sh
@@ -90,11 +84,6 @@ alias jks="jekyll serve"
 #export GPG_AGENT_INFO  # the env file does not contain the export statement
 #export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 archey -c -o
-
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
 
 ############################################################################
 #                                                                          #
@@ -196,9 +185,11 @@ eval "$(direnv hook zsh)"
 eval `keychain --eval --agents ssh --inherit any id_rsa`
 
 export LOG_FORMAT=TXT
-export ELECTRE_PROFILE="default"
+export ELECTRE_PROFILE=default
 
  export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 zstyle ':completion:*' menu yes select
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
