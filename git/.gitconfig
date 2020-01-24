@@ -1,7 +1,7 @@
 [user]
 	email = jeremie.github@grodziski.com
 	name = jeremiegrodziski
-	signingkey = BD9B2B0D
+	signingkey = BD00F4DDBFA50549
 [push]
 	default = simple
 	followTags = true
@@ -20,6 +20,7 @@
 	tool = Kaleidoscope
 [core]
 	editor = vim
+	excludesfile = /Users/jeremiegrodziski/.gitignore_global
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

@@ -28,7 +28,10 @@ brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 brew cask install adoptopenjdk9
 brew cask install adoptopenjdk13
-brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh kubectx telnet minica maven jq yarn fzf
+brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh kubectx telnet minica maven jq yarn fzf ag boot-clj vault gpg stern
+
+echo "Install Jekyll"
+gem install bundler jekyll
 
 echo "Install App Store applications"
 #run `mas list` on a mac where the MacAppstore are installed to get the identifiers below
@@ -106,16 +109,19 @@ apps=(firefox
       docker
       sketch
       slack
+      miro
       arq
       carbon-copy-cloner
       deepl
       kaleidoscope
+      kube-forwarder
       paw
       audirvana
       monodraw
       microsoft-office
       aerial
       grandperspective
+      pock
       google-cloud-sdk
       intel-power-gadget
       istat-menus
@@ -152,9 +158,13 @@ for app in *; do
 	      stow -vRt ~ $app
         echo "$app linked to home dir with stow"
 done
+echo "Reference my global gitignore coming from my dotfiles with git"
+git config --global core.excludesfile ~/.gitignore_global
+git config --global commit.gpgsign true
+git config --global user.signingkey BD00F4DDBFA50549
 
 echo "Install Fonts"
-brew tap homebrew/cask-fonts 
+brew tap homebrew/cask-fonts
 brew cask install font-inconsolata font-gentium-plus font-gentium-basic font-hack font-source-code-pro
 
 
