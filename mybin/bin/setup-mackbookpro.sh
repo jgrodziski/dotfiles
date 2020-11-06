@@ -23,12 +23,15 @@ brew update
 echo "Install git"
 brew install git
 
-echo "Install JDK 8, 9 and 13 and other CLI tools"
+echo "Install JDK 8, 9, 13, 14 and other CLI tools"
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 brew cask install adoptopenjdk9
 brew cask install adoptopenjdk13
-brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh kubectx telnet minica maven jq yarn fzf ag boot-clj vault gpg stern
+brew cask install adoptopenjdk14
+
+brew cask install karabiner-elements
+brew install tree wget node zsh adr-tools awscli binutils cask clojure cmake curl cowsay dict dnsmasq dos2unix elm tmux mas keychain direnv archey kubectl docker minikube autossh kubectx telnet minica maven jq yarn fzf ag boot-clj vault gpg stern pinentry-mac fswatch asciidoctor
 
 echo "Install Jekyll"
 gem install bundler jekyll
@@ -58,24 +61,20 @@ git checkout develop
 git pull
 cd ~
 
+echo "Install NPM global package"
+npm install -g shadow-cljs
 
-echo "Install Vim Pathogen"
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+echo "Install vim plugins using vim package"
+mkdir -p ~/.vim/pack ~/.vim/pack/themes/opt ~/.vim/pack/tpope/start
 
-echo "Install vim plugins"
-cd ~/.vim/bundle
-git clone git@github.com:sjl/badwolf.git
-git clone git@github.com:mileszs/ack.vim.git
-git clone git@github.com:jiangmiao/auto-pairs.git
-git clone git@github.com:luochen1990/rainbow.git
-git clone git@github.com:vim-scripts/vim-auto-save.git
-git clone git@github.com:lifepillar/vim-solarized8.git
-git clone git@github.com:tpope/vim-surround.git
-git clone git@github.com:guns/vim-sexp.git
-git clone git@github.com:kana/vim-arpeggio.git
-git clone git@github.com:altercation/vim-colors-solarized.git
-git clone git@github.com:kien/rainbow_parentheses.vim.git
+git clone https://github.com/lifepillar/vim-solarized8.git ~/.vim/pack/themes/opt/solarized8
+git clone https://tpope.io/vim/surround.git ~/.vim/pack/tpope/start/surround
+vim -u NONE -c "helptags surround/doc" -c q
+git clone git@github.com:guns/vim-sexp.git ~/.vim/pack/vim-sexp
+git clone https://github.com/luochen1990/rainbow.git /tmp
+cd /tmp/rainbow
+cp plugin/* ~/.vim/plugin
+cp autoload/* ~/.vim/autoload
 
 cd ~
 
@@ -109,7 +108,7 @@ apps=(firefox
       docker
       sketch
       slack
-      miro
+      miro-formerly-realtimeboard
       arq
       carbon-copy-cloner
       deepl
@@ -125,7 +124,8 @@ apps=(firefox
       google-cloud-sdk
       intel-power-gadget
       istat-menus
-      hyperdock)
+      hyperdock
+      notion)
 
 brew cask install --appdir="/Applications" ${apps[@]}
 brew cleanup
@@ -162,6 +162,7 @@ echo "Reference my global gitignore coming from my dotfiles with git"
 git config --global core.excludesfile ~/.gitignore_global
 git config --global commit.gpgsign true
 git config --global user.signingkey BD00F4DDBFA50549
+echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
 
 echo "Install Fonts"
 brew tap homebrew/cask-fonts
